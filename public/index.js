@@ -81,6 +81,7 @@ function handleGiveInitialSuggestion() {
     const interval = setInterval(() => {
       if (processedData.length !== 0) {
         generateAndShowResult();
+        loadingAnimation.classList.add("hidden");
         clearInterval(interval);
       }
     }, 5);
