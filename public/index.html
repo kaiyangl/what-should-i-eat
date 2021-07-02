@@ -1,18 +1,72 @@
 <!DOCTYPE html>
 <html>
   <head lang="en-AU">
-    <meta charset="utf-8">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet"> 
-    <link rel="stylesheet" href="index.css">
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="index.css" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="assets/apple-touch-icon.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="assets/favicon-32x32.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="assets/favicon-16x16.png"
+    />
+    <link rel="manifest" href="assets/site.webmanifest" />
+    <link rel="mask-icon" href="assets/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#da532c" />
+    <meta name="theme-color" content="#ffffff" />
     <title>What Should I Eat</title>
   </head>
+
   <body>
-    <div class="content-area">
+    <div id="content-area">
+      <!-- Landing view -->
+      <img src="assets/logo.svg" />
       <h1>What should I eat?</h1>
-      <button>Hit me with a suggestion</button>
+      <button id="suggestion-button">Hit me with a suggestion</button>
+
+      <!-- Results view -->
+      <!-- h2 below is where the result will be -->
+      <h2 class="hidden"></h2>
+      <button id="find-recipe-button" class="hidden">Find me a recipe</button>
+
+      <!-- Additional buttons -->
+      <div id="additional-buttons-wrapper" class="hidden">
+        <button id="no-button">I'm not feeling it</button>
+        <button id="more-meat-button">I want more meat</button>
+        <button id="more-veggie-button">I want more veggies</button>
+      </div>
+
+      <!-- Preferences toggles -->
+      <div id="preferences-wrapper">
+        <!-- Slider credits to https://codepen.io/AllThingsSmitty/pen/MmxxOz -->
+        <label for="no-dairy">
+          <div class="switch">
+            <input type="checkbox" id="no-dairy" />
+            <div class="slider round"></div>
+          </div>
+          I can't eat dairy
+        </label>
+        <label for="no-seafood">
+          <div class="switch">
+            <input type="checkbox" id="no-seafood" />
+            <div class="slider round"></div>
+          </div>
+          I can't eat seafood
+        </label>
+      </div>
     </div>
+
+    <!-- Load JS scripts -->
     <script src="index.js"></script>
   </body>
 </html>
