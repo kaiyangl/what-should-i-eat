@@ -65,6 +65,7 @@ async function recursivelyGetData(id, cursor, data) {
 module.exports = (req, res) => {
   const data = [];
   recursivelyGetData(databaseId, undefined, data).then(() => {
+    res.setHeader("Cache-Control", "s-maxage=86400");
     res.json(data);
     return res;
   });
