@@ -62,9 +62,10 @@ async function recursivelyGetData(id, cursor, data) {
   parseResponse(jsonData, data);
 }
 
-module.exports = async (req, res) => {
+module.exports = (req, res) => {
   const data = [];
-  await recursivelyGetData(databaseId, undefined, data);
-
-  res.json(data);
+  recursivelyGetData(databaseId, undefined, data).then(() => {
+    res.json(data);
+    return res;
+  });
 };
