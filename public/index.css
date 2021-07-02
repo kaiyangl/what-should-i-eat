@@ -5,6 +5,10 @@
 
 * {
   box-sizing: border-box;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity 1s linear;
+
 }
 
 body {
@@ -12,8 +16,8 @@ body {
   padding: 0;
   margin: 0;
   background-color: #FDFBF8;
-  animation: opac 0.8s;
   text-align: center;
+  animation: opac 1s;
 }
 
 @keyframes opac {
@@ -60,7 +64,13 @@ h2 {
 }
 
 .hidden {
-  display: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 1s linear;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
 }
 
 #page-wrapper {
@@ -86,13 +96,29 @@ h2 {
   color: inherit;
 }
 
+#find-recipe-button.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 1s linear;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+}
+
 #additional-buttons-wrapper {
   display: flex;
   align-items: center;
 }
 
 #additional-buttons-wrapper.hidden {
-  display: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 1s linear;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
 }
 
 @media screen and (max-width: 820px) {
@@ -111,7 +137,6 @@ h2 {
     justify-content: center;
   }
 }
-
 
 /* buttons */
 
@@ -141,6 +166,16 @@ h2 {
   background-color: #DE8704;
   border: 2px solid #DE8704;
   box-shadow: -8px 4px #FFD600;
+}
+
+#suggestion-button.hidden {
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 1s linear;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
 }
 
 #no-button {
@@ -296,7 +331,13 @@ input:focus + .slider {
 }
 
 .lds-ripple.hidden {
-  display: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s, opacity 0.5s linear;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
 }
 
 .lds-ripple div {

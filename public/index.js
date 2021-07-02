@@ -11,6 +11,8 @@ let currentIndex = null;
 // Elements
 const suggestionButton = document.querySelector("#suggestion-button");
 const result = document.querySelector("h2");
+const firstHeading = document.querySelector("#first-heading");
+const secondHeading = document.querySelector("#second-heading");
 const findRecipeButton = document.querySelector("#find-recipe-button");
 const extraButtonSection = document.querySelector(
   "#additional-buttons-wrapper"
@@ -66,7 +68,9 @@ function handleGiveInitialSuggestion() {
 
   function generateAndShowResult() {
     generateRandomResult();
+    firstHeading.classList.add("hidden");
     logo.classList.add("hidden");
+    secondHeading.classList.remove("hidden");
     result.classList.remove("hidden");
     findRecipeButton.classList.remove("hidden");
     extraButtonSection.classList.remove("hidden");
