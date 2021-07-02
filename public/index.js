@@ -26,7 +26,6 @@ function getRandomInt(max) {
 }
 
 function filterData() {
-  debugger;
   filteredData = processedData.filter((i) => {
     if (noDairy && i.tags.has("Dairy")) {
       return false;
@@ -50,6 +49,13 @@ function generateRandomResult() {
   }
   currentIndex = newIndex;
   result.innerHTML = filteredData[newIndex].name;
+  findRecipeButton.setAttribute(
+    "href",
+    `https://www.google.com/search?&q=${filteredData[newIndex].name.replace(
+      " ",
+      "+"
+    )}+recipe`
+  );
 }
 
 // Handlers
