@@ -24,28 +24,38 @@
     <link rel="mask-icon" href="assets/safari-pinned-tab.svg" color="#5bbad5" />
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#ffffff" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>What Should I Eat</title>
   </head>
 
   <body>
-    <div id="content-area">
-      <!-- Landing view -->
-      <img src="assets/logo.svg" />
-      <h1>What should I eat?</h1>
-      <button id="suggestion-button">Hit me with a suggestion</button>
+    <div id="page-wrapper">
+      <div id="content-area">
+        <!-- Landing view -->
+        <img src="assets/logo.svg" />
+        <h1>What should I eat?</h1>
+        <button id="suggestion-button">Hit me with a suggestion</button>
 
-      <!-- Results view -->
-      <!-- h2 below is where the result will be -->
-      <h2 class="hidden"></h2>
-      <a id="find-recipe-button" class="hidden" target="_blank">Find me a recipe</button>
+        <!-- Loading animation credits to https://loading.io/css/ -->
+        <div class="lds-ripple hidden">
+          <div></div>
+          <div></div>
+        </div>
 
-      <!-- Additional buttons -->
-      <div id="additional-buttons-wrapper" class="hidden">
-        <button id="no-button">I'm not feeling it</button>
-        <button id="more-meat-button">I want more meat</button>
-        <button id="more-veggie-button">I want more veggies</button>
+        <!-- Results view -->
+        <!-- h2 below is where the result will be -->
+        <h2 class="hidden"></h2>
+        <a id="find-recipe-button" class="hidden" target="_blank">
+          Find me a recipe
+        </a>
+
+        <!-- Additional buttons -->
+        <div id="additional-buttons-wrapper" class="hidden">
+          <button id="no-button">I'm not feeling it</button>
+          <button id="more-meat-button">I want more meat</button>
+          <button id="more-veggie-button">I want more veggies</button>
+        </div>
       </div>
-
       <!-- Preferences toggles -->
       <div id="preferences-wrapper">
         <!-- Slider credits to https://codepen.io/AllThingsSmitty/pen/MmxxOz -->

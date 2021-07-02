@@ -20,6 +20,8 @@ const moreMeatButton = document.querySelector("#more-meat-button");
 const moreVeggieButton = document.querySelector("#more-veggie-button");
 const noDairyToggle = document.querySelector("#no-dairy");
 const noSeafoodToggle = document.querySelector("#no-seafood");
+const loadingAnimation = document.querySelector(".lds-ripple");
+const logo = document.querySelector("img");
 
 function getRandomInt(max) {
   return Math.floor(Math.random() * max);
@@ -44,7 +46,7 @@ function filterData() {
 // Result generator
 function generateRandomResult() {
   let newIndex = getRandomInt(filteredData.length);
-  while (filteredData.length !== 0 && newIndex === currentIndex) {
+  while (filteredData.length > 1 && newIndex === currentIndex) {
     newIndex = getRandomInt(filteredData.length);
   }
   currentIndex = newIndex;
@@ -61,10 +63,26 @@ function generateRandomResult() {
 // Handlers
 function handleGiveInitialSuggestion() {
   suggestionButton.classList.add("hidden");
-  generateRandomResult();
-  result.classList.remove("hidden");
-  findRecipeButton.classList.remove("hidden");
-  extraButtonSection.classList.remove("hidden");
+
+  function generateAndShowResult() {
+    generateRandomResult();
+    logo.classList.add("hidden");
+    result.classList.remove("hidden");
+    findRecipeButton.classList.remove("hidden");
+    extraButtonSection.classList.remove("hidden");
+  }
+
+  if (processedData.length === 0) {
+    loadingAnimation.classList.remove("hidden");
+    const interval = setInterval(() => {
+      if (processedData.length !== 0) {
+        generateAndShowResult();
+        clearInterval(interval);
+      }
+    }, 5);
+  } else {
+    generateAndShowResult();
+  }
 }
 
 function handleMoreMeat() {
@@ -124,14 +142,22 @@ noSeafoodToggle.addEventListener("click", handleNoSeafoodToggle);
 noDairyToggle.addEventListener("click", handleNoDairyToggle);
 
 // fetch data and initialise
-fetch("/api/index")
-  .then((response) => response.json())
-  .then((data) => {
-    processedData = data.map((i) => ({
-      name: i.name,
-      vegetarian: i.vegetarian,
-      tags: new Set(i.tags),
-      type: new Set(i.type),
-    }));
-    filterData();
-  });
+// fetch("/api/index")
+//   .then((response) => response.json())
+//   .then((data) => {
+const data = [
+  {
+    name: "Cheese-Stuffed Pasta Shells",
+    vegetarian: true,
+    tags: ["Dairy"],
+    type: ["Pasta"],
+  },
+];
+processedData = data.map((i) => ({
+  name: i.name,
+  vegetarian: i.vegetarian,
+  tags: new Set(i.tags),
+  type: new Set(i.type),
+}));
+filterData();
+//   });
