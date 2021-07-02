@@ -142,22 +142,14 @@ noSeafoodToggle.addEventListener("click", handleNoSeafoodToggle);
 noDairyToggle.addEventListener("click", handleNoDairyToggle);
 
 // fetch data and initialise
-// fetch("/api/index")
-//   .then((response) => response.json())
-//   .then((data) => {
-const data = [
-  {
-    name: "Cheese-Stuffed Pasta Shells",
-    vegetarian: true,
-    tags: ["Dairy"],
-    type: ["Pasta"],
-  },
-];
-processedData = data.map((i) => ({
-  name: i.name,
-  vegetarian: i.vegetarian,
-  tags: new Set(i.tags),
-  type: new Set(i.type),
-}));
-filterData();
-//   });
+fetch("/api/index")
+  .then((response) => response.json())
+  .then((data) => {
+    processedData = data.map((i) => ({
+      name: i.name,
+      vegetarian: i.vegetarian,
+      tags: new Set(i.tags),
+      type: new Set(i.type),
+    }));
+    filterData();
+  });
