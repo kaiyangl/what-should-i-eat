@@ -52,6 +52,7 @@ function generateRandomResult() {
     newIndex = getRandomInt(filteredData.length);
   }
   currentIndex = newIndex;
+  result.classList.add("invisible");
   result.innerHTML = filteredData[newIndex].name;
   findRecipeButton.setAttribute(
     "href",
@@ -60,6 +61,9 @@ function generateRandomResult() {
       "+"
     )}+recipe`
   );
+  setTimeout(() => {
+    result.classList.remove("invisible");
+  }, 10);
 }
 
 // Handlers

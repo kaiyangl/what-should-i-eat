@@ -5,10 +5,8 @@
 
 * {
   box-sizing: border-box;
-  visibility: visible;
-  opacity: 1;
-  transition: opacity 1s linear;
-
+  animation: opac 1s;
+  transition: opacity 0.8s linear;
 }
 
 body {
@@ -17,7 +15,6 @@ body {
   margin: 0;
   background-color: #FDFBF8;
   text-align: center;
-  animation: opac 1s;
 }
 
 @keyframes opac {
@@ -66,11 +63,22 @@ h2 {
 .hidden {
   visibility: hidden !important;
   opacity: 0 !important;
-  transition: visibility 0s, opacity 1s linear;
-  width: 0 !important;
-  height: 0 !important;
   margin: 0 !important;
   padding: 0 !important;
+  position: absolute !important;
+  clip: rect(0 0 0 0) !important;
+  clip-path: inset(50%) !important;
+  height: 1px !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  width: 1px !important;
+  top: -1px;
+  left: -1px;
+}
+
+.invisible {
+  opacity: 0 !important;
+  transition: opacity 0s linear;
 }
 
 #page-wrapper {
@@ -109,7 +117,7 @@ h2 {
 
 #preferences-wrapper {
   display: flex;
-  justify-content: right;
+  justify-content: flex-end;
 }
 
 @media screen and (max-width: 820px) {
